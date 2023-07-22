@@ -1,0 +1,4 @@
+.idea
+
+# Chart dependencies
+**/charts/*.tgz
