@@ -5,7 +5,9 @@ Helm's [documentation](https://helm.sh/docs) to get started.
 
 Once Helm has been set up correctly, add the repo as follows:
 
-helm repo add quiltmc https://quiltmc.github.io/helm-charts
+```bash
+helm repo add quiltmc https://helm-charts.quiltmc.org
+```
 
 If you had already added this repo earlier, run `helm repo update` to retrieve
 the latest versions of the packages.  You can then run `helm search repo
@@ -13,8 +15,12 @@ quiltmc` to see the charts.
 
 To install the <chart-name> chart:
 
-    helm install my-<chart-name> quiltmc/<chart-name>
+```bash
+helm install my-<chart-name> quiltmc/<chart-name>
+```
 
 To uninstall the chart:
 
-    helm delete my-<chart-name>
+```bash
+helm delete my-<chart-name>
+```
