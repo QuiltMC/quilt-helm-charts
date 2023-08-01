@@ -19,3 +19,15 @@ mongodb:
       - 'cozy'
     databases:
       - 'cozy'
+  enableIPv6: true
+  extraFlags: "--bind_ip_all"
+#  readinessProbe:
+#    enabled: false
+#  customReadinessProbe:
+#    exec:
+#      command:
+#        - /bin/sh
+#        - -c
+#        - /opt/bitnami/mongodb/bin/mongo --disableImplicitSessions --eval "db.adminCommand('ping')"
+#    initialDelaySeconds: 5
+#    periodSeconds: 5
