@@ -13,7 +13,6 @@ viewer:
   port: 80
   oauthClientId: '836548129763098674'
 
-
 resources: # cf. https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
   limits:
     cpu: 400m
