@@ -1,8 +1,10 @@
-image: ghcr.io/quiltmc/cozy-discord:latest
+image: ghcr.io/modmail-dev/modmail:master
 namespace: quilt
 replicaCount: 1
-guildId: '1130999953595043984'
-moderatorRoleId: '1131000212425543741'
+logUrl: https://mm.quiltmc.org
+guildId: '817576132726620200'
+modmailGuildId: '836546165142847528'
+owners: '109040264529608704'
 resources: # cf. https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
   limits:
     cpu: 400m
@@ -12,10 +14,10 @@ resources: # cf. https://kubernetes.io/docs/concepts/configuration/manage-resour
     memory: 724Mi
 mongodb:
   auth:
-    rootPassword: cozy
+    rootPassword: modmail
     usernames:
-      - cozy
+      - modmail
     passwords:
-      - cozy
+      - modmail
     databases:
-      - cozy
+      - modmail

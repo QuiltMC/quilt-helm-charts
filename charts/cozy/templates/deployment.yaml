@@ -39,14 +39,14 @@ spec:
                 - ALL
           imagePullPolicy: Always
           env:
-            - name: 'MODE'
-              value: 'quilt'
+            - name: MODE
+              value: quilt
           envFrom:
             - configMapRef:
                 name: {{ .Chart.Name }}-config
             - secretRef:
                 # env name should be TOKEN
-                name: 'cozy-quilt-discord-token'
+                name: cozy-quilt-discord-token
           resources:
             {{ toYaml .Values.resources | nindent 10 }}
         - name: cozy-collab
@@ -58,13 +58,13 @@ spec:
                 - ALL
           imagePullPolicy: Always
           env:
-            - name: 'MODE'
-              value: 'collab'
+            - name: MODE
+              value: collab
           envFrom:
             - configMapRef:
                 name: {{ .Chart.Name }}-config
             - secretRef:
-                name: 'cozy-collab-discord-token'
+                name: cozy-collab-discord-token
           resources:
             {{ toYaml .Values.resources | nindent 10 }}
         - name: cozy-showcase
@@ -76,13 +76,13 @@ spec:
                 - ALL
           imagePullPolicy: Always
           env:
-            - name: 'MODE'
-              value: 'showcase'
+            - name: MODE
+              value: showcase
           envFrom:
             - configMapRef:
                 name: {{ .Chart.Name }}-config
             - secretRef:
-                name: 'cozy-showcase-discord-token'
+                name: cozy-showcase-discord-token
           resources:
             {{ toYaml .Values.resources | nindent 10 }}
         - name: cozy-dev
@@ -94,13 +94,13 @@ spec:
                 - ALL
           imagePullPolicy: Always
           env:
-            - name: 'MODE'
-              value: 'dev'
+            - name: MODE
+              value: dev
           envFrom:
             - configMapRef:
                 name: {{ .Chart.Name }}-config
             - secretRef:
-                name: 'cozy-dev-discord-token'
+                name: cozy-dev-discord-token
           resources:
             {{ toYaml .Values.resources | nindent 10 }}
       imagePullSecrets:
