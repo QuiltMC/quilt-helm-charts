@@ -7,8 +7,13 @@ metadata:
     app.kubernetes.io/name: {{ .Chart.Name }}
     app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 data:
-  LOG_URL: "{{ .Values.logUrl }}"
-  GUILD_ID: "{{ .Values.guildId }}"
-  MODMAIL_GUILD_ID: "{{ .Values.modmailGuildId }}"
-  OWNERS: "{{ .Values.owners }}"
+  LOG_URL: {{ .Values.logUrl }}
+  GUILD_ID: '{{ .Values.guildId }}'
+  MODMAIL_GUILD_ID: '{{ .Values.modmailGuildId }}'
+  OWNERS: '{{ .Values.owners }}'
   CONNECTION_URI: 'mongodb://root:modmail@{{ .Chart.Name }}-mongodb:27017'
+  
+  MODMAIL_VIEWER_URL: {{ .Values.logUrl }}
+  MODMAIL_VIEWER_MONGODB_URI: 'mongodb://root:modmail@{{ .Chart.Name }}-mongodb:27017'
+  MODMAIL_VIEWER_DISCORD_OAUTH_CLIENT_ID: '{{ .Values.oauthClientId }}'
+  MODMAIL_VIEWER_DISCORD_GUILD_ID: '{{ .Values.guildId }}'

@@ -31,7 +31,7 @@ spec:
           type: RuntimeDefault
       containers:
         - name: modmail-quilt
-          image: {{ .Values.image }}
+          image: {{ .Values.botImage }}
           securityContext:
             allowPrivilegeEscalation: false
             capabilities:
@@ -43,7 +43,22 @@ spec:
                 name: {{ .Chart.Name }}-config
             - secretRef:
                 # env name should be TOKEN
-                name: 'modmail-quilt-discord-token'
+                name: modmail-quilt-discord-token
+          resources:
+            {{ toYaml .Values.resources | nindent 10 }}
+        - name: modmail-viewer-quilt
+          image: {{ .Values.viewerImage }}
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+                - ALL
+          imagePullPolicy: Always
+          envFrom:
+            - configMapRef:
+                name: {{ .Chart.Name }}-config
+            - secretRef:
+                name: modmail-viewer-quilt
           resources:
             {{ toYaml .Values.resources | nindent 10 }}
       imagePullSecrets:

@@ -1,10 +1,13 @@
-image: ghcr.io/modmail-dev/modmail:master
+botImage: ghcr.io/modmail-dev/modmail:master
+viewerImage: ghcr.io/khakers/modmail-viewer:latest
 namespace: quilt
 replicaCount: 1
 logUrl: https://mm.quiltmc.org
 guildId: '817576132726620200'
 modmailGuildId: '836546165142847528'
 owners: '109040264529608704'
+oauthClientId: '836548129763098674'
+
 resources: # cf. https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
   limits:
     cpu: 400m
@@ -12,6 +15,7 @@ resources: # cf. https://kubernetes.io/docs/concepts/configuration/manage-resour
   requests:
     cpu: 400m
     memory: 724Mi
+
 mongodb:
   auth:
     rootPassword: modmail
