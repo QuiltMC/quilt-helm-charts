@@ -1,14 +1,14 @@
 # Spec: https://helm.sh/docs/topics/charts/#the-chartyaml-file
 apiVersion: v2
-name: quilt-modmail
+name: quilt-forum
 # This is the chart version. This version number should be incremented each time you make changes
 # to the chart and its templates, including the app version.
 # Versions are expected to follow Semantic Versioning (https://semver.org/)
 version: 1.0.0
 # This is the version number of the application being deployed (purely informational).
 appVersion: '1'
-description: helm chart to deploy Quilt's Modmail Discord bot
-home: https://github.com/QuiltMC/quilt-helm-charts
+description: helm chart to deploy the Quilt Discourse Forum
+home: https://github.com/QuiltMC/quilt-k8s-manifests
 # A chart can be either an 'application' or a 'library' chart.
 type: application
 maintainers:
@@ -17,6 +17,6 @@ maintainers:
   - name: tibs
     email: tibs@quiltmc.org
 dependencies:
-  - name: mongodb
-    version: 13.16.2
+  - name: discourse
+    version: 10.3.4
     repository: https://charts.bitnami.com/bitnami

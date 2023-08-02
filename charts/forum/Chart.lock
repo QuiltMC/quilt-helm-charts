@@ -1,0 +1,6 @@
+dependencies:
+- name: discourse
+  repository: https://charts.bitnami.com/bitnami
+  version: 10.3.4
+digest: sha256:985bb9f387f7019e70e890c1a81994be5624a4a9c0e32f32c17f217d494aef67
+generated: "2023-07-06T00:53:09.91979+02:00"

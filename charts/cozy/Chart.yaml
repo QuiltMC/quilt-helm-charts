@@ -14,6 +14,8 @@ type: application
 maintainers:
   - name: Pyrofab
     email: pyrofab@quiltmc.org
+  - name: tibs
+    email: tibs@quiltmc.org
 dependencies:
   - name: mongodb
     version: 13.16.2

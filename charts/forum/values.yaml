@@ -1,0 +1,26 @@
+discourse:
+  siteName: "Quilt Forum"
+  host: "forum.quiltmc.org"
+  discourse:
+    extraEnvVars:
+      - name: 'DISCOURSE_SMTP_ADDRESS'
+        value: 'email-smtp.us-west-2.amazonaws.com'
+      - name: 'DISCOURSE_NOTIFICATION_EMAIL'
+        value: 'discourse@forum.quiltmc.org'
+    extraEnvVarsCM: 'quilt-forum-config'
+    extraEnvVarsSecret: "discourse-secret-env"
+  smtp:
+    host: 'quiltmc.org'
+    port: '2587'
+  ingress:
+    enabled: true
+    ingressClassName: "traefik"
+    hostname: "forum.quiltmc.org"
+    annotations:
+      traefik.ingress.kubernetes.io/router.middlewares: default-redirect-https@kubernetescrd
+      cert-manager.io/cluster-issuer: letsencrypt-prod
+  postgresql:
+    auth:
+      # Need to set a password to let discourse connect to its own database
+      # The database is not accessible from outside the cluster
+      password: "default"
