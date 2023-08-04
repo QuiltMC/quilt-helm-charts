@@ -1,6 +1,6 @@
 discourse:
   siteName: "Quilt Forum"
-  host: "forum.quiltmc.org"
+  host: "test.quiltmc.net"
   discourse:
     extraEnvVars:
       - name: 'DISCOURSE_SMTP_ADDRESS'
@@ -15,10 +15,7 @@ discourse:
   ingress:
     enabled: true
     ingressClassName: "traefik"
-    hostname: "forum.quiltmc.org"
-    annotations:
-      traefik.ingress.kubernetes.io/router.middlewares: default-redirect-https@kubernetescrd
-      cert-manager.io/cluster-issuer: letsencrypt-prod
+    hostname: "test.quiltmc.net"
   postgresql:
     auth:
       # Need to set a password to let discourse connect to its own database
