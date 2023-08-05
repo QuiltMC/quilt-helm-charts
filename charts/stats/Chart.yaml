@@ -1,13 +1,13 @@
 # Spec: https://helm.sh/docs/topics/charts/#the-chartyaml-file
 apiVersion: v2
-name: quilt-forum
+name: quilt-stats
 # This is the chart version. This version number should be incremented each time you make changes
 # to the chart and its templates, including the app version.
 # Versions are expected to follow Semantic Versioning (https://semver.org/)
 version: 1.0.0
 # This is the version number of the application being deployed (purely informational).
 appVersion: '1'
-description: helm chart to deploy the Quilt Discourse Forum
+description: helm chart to deploy Quilt's Stats Discord bot
 home: https://github.com/QuiltMC/quilt-helm-charts
 # A chart can be either an 'application' or a 'library' chart.
 type: application
@@ -17,6 +17,6 @@ maintainers:
   - name: tibs
     email: tibs@quiltmc.org
 dependencies:
-  - name: discourse
-    version: 10.3.4
+  - name: postgresql
+    version: 12.8.0
     repository: https://charts.bitnami.com/bitnami

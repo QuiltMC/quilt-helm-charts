@@ -1,0 +1,37 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Chart.Name }}-metricity-config
+  namespace: {{ .Values.namespace }}
+  labels:
+    app.kubernetes.io/name: {{ .Chart.Name }}
+    app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
+data:
+  config.toml: |
+    [python]
+    log_level = "INFO"
+    discord_log_level = "INFO"
+
+    [bot]
+    token = { env = "BOT_TOKEN" }
+    guild_id = 817576132726620200
+    staff_role_id = 863767207716192306
+    staff_categories = [
+        832333242874986608,
+        834516250021330949,
+        839495849116958780,
+        921052463056957480,
+        896027725037461555
+    ]
+    ignore_categories = [
+        834516250021330949
+    ]
+
+    [database]
+    uri = { env = "DATABASE_URI", optional = true }
+
+    host = "{{ .Chart.Name }}-postgresql"
+    port = 5432
+    database = "stats"
+    username = "postgres"
+    password = "stats"

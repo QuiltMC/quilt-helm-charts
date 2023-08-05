@@ -1,0 +1,18 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ .Chart.Name }}-ingress
+  namespace: {{ .Values.namespace }}
+spec:
+  ingressClassName: traefik
+  rules:
+    - host: {{ .Values.metabase.url }}
+      http:
+        paths:
+          - path: '/'
+            pathType: Prefix
+            backend:
+              service:
+                name: {{ .Chart.Name }}-metabase
+                port:
+                  number: {{ .Values.metabase.port }}

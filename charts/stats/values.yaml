@@ -1,0 +1,23 @@
+namespace: quilt
+replicaCount: 1
+
+metricity:
+  image: ghcr.io/python-discord/metricity:latest
+
+metabase:
+  image: metabase/metabase:latest
+  url: stats.quiltmc.org
+  port: 3000
+
+resources: # cf. https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+  limits:
+    cpu: 400m
+    memory: 924Mi
+  requests:
+    cpu: 400m
+    memory: 724Mi
+
+postgresql:
+  auth:
+    postgresPassword: stats
+    database: metabase
