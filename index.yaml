@@ -42,6 +42,32 @@ entries:
   quilt-forum:
   - apiVersion: v2
     appVersion: "1"
+    created: "2023-08-07T22:07:29.924323094Z"
+    dependencies:
+    - name: discourse
+      repository: https://pyrofab.github.io/mozilla-helm-charts/
+      version: 3.1.0
+    - name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: 12.X.X
+    - name: redis
+      repository: https://charts.bitnami.com/bitnami
+      version: 17.X.X
+    description: helm chart to deploy the Quilt Discourse Forum
+    digest: 20daedb95c9649ff5b7348d422c32821e5c66904b034f11d7e9c0c10a7875945
+    home: https://github.com/QuiltMC/quilt-helm-charts
+    maintainers:
+    - email: pyrofab@quiltmc.org
+      name: Pyrofab
+    - email: tibs@quiltmc.org
+      name: tibs
+    name: quilt-forum
+    type: application
+    urls:
+    - https://github.com/QuiltMC/quilt-helm-charts/releases/download/quilt-forum-0.1.1/quilt-forum-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
+    appVersion: "1"
     created: "2023-08-07T21:38:22.940370235Z"
     dependencies:
     - name: discourse
@@ -108,4 +134,4 @@ entries:
     urls:
     - https://github.com/QuiltMC/quilt-helm-charts/releases/download/quilt-stats-1.0.0/quilt-stats-1.0.0.tgz
     version: 1.0.0
-generated: "2023-08-07T21:38:23.239710995Z"
+generated: "2023-08-07T22:07:29.924355996Z"
