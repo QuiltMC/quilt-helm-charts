@@ -21,7 +21,7 @@ discourse:
 
   configMap:
     data:
-      DISCOURSE_HOSTNAME: 'test.quiltmc.net'
+      DISCOURSE_HOSTNAME: 'forum.quiltmc.org'
       DISCOURSE_DB_PORT: 5432
       DISCOURSE_DB_SOCKET: ""
       DISCOURSE_DEVELOPER_EMAILS: 'pyrofab@quiltmc.net, tibs@quiltmc.net'
@@ -41,9 +41,12 @@ discourse:
       UNICORN_SIDEKIQS: 1
       UNICORN_WORKERS: 1
 
+  remoteLogger:
+    enabled: false
+
   db:
     migrate:
-      enabled: true
+      enabled: false
 
   image:
     repository: "ghcr.io/quiltmc/forum"
@@ -52,7 +55,7 @@ discourse:
   ingress:
     className: "traefik"
     hosts:
-      - host: "test.quiltmc.net"
+      - host: "forum.quiltmc.org"
         paths:
           - path: /
             pathType: ImplementationSpecific
