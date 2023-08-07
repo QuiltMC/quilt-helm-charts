@@ -21,9 +21,11 @@ jobs:
 
       - name: Install Helm
         uses: azure/setup-helm@v3.5
-      
+
       - name: Add Helm repos
-        run: helm repo add bitnami https://charts.bitnami.com/bitnami
+        run: |
+          helm repo add bitnami https://charts.bitnami.com/bitnami
+          helm repo add pyrofab-mozilla https://pyrofab.github.io/mozilla-helm-charts
 
       - name: Run chart-releaser
         uses: helm/chart-releaser-action@v1.5.0
