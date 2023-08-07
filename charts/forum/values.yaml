@@ -1,23 +1,66 @@
+postgresql:
+  auth:
+    username: "forum_quiltmc_org"
+    database: "forum_quiltmc_org"
+    password: "default"
+
+
+redis:
+  auth:
+    enabled: false
+
 discourse:
-  siteName: "Quilt Forum"
-  host: "test.quiltmc.net"
-  discourse:
-    extraEnvVars:
-      - name: 'DISCOURSE_SMTP_ADDRESS'
-        value: 'email-smtp.us-west-2.amazonaws.com'
-      - name: 'DISCOURSE_NOTIFICATION_EMAIL'
-        value: 'discourse@forum.quiltmc.org'
-    extraEnvVarsCM: 'quilt-forum-config'
-    extraEnvVarsSecret: "discourse-secret-env"
-  smtp:
-    host: 'quiltmc.org'
-    port: '2587'
+  autoscaling:
+    enabled: false
+    minReplicas: 1
+    maxReplicas: 3
+    targetCPUUtilizationPercentage: 75
+
+  cert-manager:
+    install: false
+
+  configMap:
+    data:
+      DISCOURSE_HOSTNAME: 'test.quiltmc.net'
+      DISCOURSE_DB_PORT: 5432
+      DISCOURSE_DB_SOCKET: ""
+      DISCOURSE_DEVELOPER_EMAILS: 'pyrofab@quiltmc.net, tibs@quiltmc.net'
+      DISCOURSE_SMTP_ADDRESS: 'email-smtp.us-west-2.amazonaws.com'
+      DISCOURSE_NOTIFICATION_EMAIL: 'discourse@forum.quiltmc.org'
+      DISCOURSE_REDIS_HOST: "quilt-forum-redis-master.quilt.svc.cluster.local"
+      DISCOURSE_DB_HOST: "quilt-forum-postgresql.quilt.svc.cluster.local"
+      DISCOURSE_S3_ENDPOINT: 'https://s3.eu-central-003.backblazeb2.com'
+      DISCOURSE_S3_CDN_URL: 'https://forum-cdn.quiltmc.org'
+      DISCOURSE_S3_BUCKET: 'forum-quiltmc-org'
+      LANG: en_US.UTF-8
+      RAILS_ENV: production
+      RUBY_GC_HEAP_GROWTH_MAX_SLOTS: 40000
+      RUBY_GC_HEAP_INIT_SLOTS: 400000
+      RUBY_GC_HEAP_OLDOBJECT_LIMIT_FACTOR: 1.5
+      RUBY_GLOBAL_METHOD_CACHE_SIZE: 131072
+      UNICORN_SIDEKIQS: 1
+      UNICORN_WORKERS: 1
+
+  db:
+    migrate:
+      enabled: true
+
+  image:
+    repository: "ghcr.io/quiltmc/forum"
+    tag: "d7fc8f9"
+
   ingress:
-    enabled: true
-    ingressClassName: "traefik"
-    hostname: "test.quiltmc.net"
-  postgresql:
-    auth:
-      # Need to set a password to let discourse connect to its own database
-      # The database is not accessible from outside the cluster
-      password: "default"
+    className: "traefik"
+    hosts:
+      - host: "test.quiltmc.net"
+        paths:
+          - path: /
+            pathType: ImplementationSpecific
+            serviceName: discourse
+            servicePort: 80
+    annotations: {}
+    labels: {}
+    le:
+      create: false
+      issuer_create: false
+    name: discourse

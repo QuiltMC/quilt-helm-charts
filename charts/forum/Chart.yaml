@@ -18,5 +18,11 @@ maintainers:
     email: tibs@quiltmc.org
 dependencies:
   - name: discourse
-    version: 10.3.4
+    version: 3.1.0
+    repository: https://pyrofab.github.io/mozilla-helm-charts/
+  - name: postgresql
     repository: https://charts.bitnami.com/bitnami
+    version: 12.X.X
+  - name: redis
+    repository: https://charts.bitnami.com/bitnami
+    version: 17.X.X
