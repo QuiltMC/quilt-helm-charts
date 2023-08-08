@@ -16,5 +16,7 @@ data:
   MODMAIL_VIEWER_URL: https://{{ .Values.viewer.url }}
   MODMAIL_VIEWER_MONGODB_URI: mongodb://root:modmail@{{ .Chart.Name }}-mongodb:27017
   MODMAIL_VIEWER_DISCORD_OAUTH_CLIENT_ID: '{{ .Values.viewer.oauthClientId }}'
-  MODMAIL_VIEWER_DISCORD_GUILD_ID: '{{ .Values.bot.guildId }}'
+  # MODMAIL_VIEWER_DISCORD_OAUTH_CLIENT_SECRET: secret value
+  MODMAIL_VIEWER_DISCORD_GUILD_ID: '{{ .Values.bot.modmailGuildId }}'
   MODMAIL_VIEWER_HTTP_PORT: '{{ .Values.viewer.port }}'
+  # MODMAIL_VIEWER_SECRETKEY: secret value
