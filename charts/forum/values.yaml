@@ -41,6 +41,8 @@ discourse:
       UNICORN_SIDEKIQS: 1
       UNICORN_WORKERS: 1
 
+  extraEnvVarsSecret: "discourse-secret-env"
+
   remoteLogger:
     enabled: false
 
