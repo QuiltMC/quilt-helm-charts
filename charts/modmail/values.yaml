@@ -30,3 +30,7 @@ mongodb:
       - modmail
     databases:
       - modmail
+
+s3-backups:
+  database:
+    password: "{{ .Values.mongodb.rootPassword }}"

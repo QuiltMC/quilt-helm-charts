@@ -21,3 +21,10 @@ postgresql:
   auth:
     postgresPassword: stats
     database: metabase
+
+s3-backups:
+  database:
+    type: "postgresql"
+    host: "{{ .Release.Name }}-postgresql:5432"
+    password: stats
+    dbName: metabase

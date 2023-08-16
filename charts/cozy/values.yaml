@@ -23,3 +23,7 @@ mongodb:
       - cozy
     databases:
       - cozy
+
+s3-backups:
+  database:
+    password: cozy

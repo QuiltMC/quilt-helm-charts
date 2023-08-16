@@ -4,6 +4,12 @@ postgresql:
     database: "forum_quiltmc_org"
     password: "default"
 
+s3-backups:
+  database:
+    type: 'postgresql'
+    dbName: "forum_quiltmc_org"
+    username: "forum_quiltmc_org"
+    password: "default"
 
 redis:
   auth:

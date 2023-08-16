@@ -1,10 +1,10 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Chart.Name }}-deploy
+  name: {{ .Release.Name }}-deploy
   namespace: {{ .Values.namespace }}
   labels:
-    app.kubernetes.io/name: {{ .Chart.Name }}
+    app.kubernetes.io/name: {{ .Release.Name }}
     app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
     app.kubernetes.io/instance: {{ .Release.Name }}
     app.kubernetes.io/managed-by: {{ .Release.Service }}
@@ -18,11 +18,11 @@ spec:
       maxUnavailable: 1
   selector:
     matchLabels:
-      app.kubernetes.io/name: {{ .Chart.Name }}
+      app.kubernetes.io/name: {{ .Release.Name }}
   template:
     metadata:
       labels:
-        app.kubernetes.io/name: {{ .Chart.Name }}
+        app.kubernetes.io/name: {{ .Release.Name }}
         app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
     spec:
       securityContext:
@@ -43,7 +43,7 @@ spec:
               value: quilt
           envFrom:
             - configMapRef:
-                name: {{ .Chart.Name }}-config
+                name: {{ .Release.Name }}-config
             - secretRef:
                 # env name should be TOKEN
                 name: cozy-quilt-discord-token
@@ -62,7 +62,7 @@ spec:
               value: collab
           envFrom:
             - configMapRef:
-                name: {{ .Chart.Name }}-config
+                name: {{ .Release.Name }}-config
             - secretRef:
                 name: cozy-collab-discord-token
           resources:
@@ -80,7 +80,7 @@ spec:
               value: showcase
           envFrom:
             - configMapRef:
-                name: {{ .Chart.Name }}-config
+                name: {{ .Release.Name }}-config
             - secretRef:
                 name: cozy-showcase-discord-token
           resources:
@@ -98,7 +98,7 @@ spec:
               value: dev
           envFrom:
             - configMapRef:
-                name: {{ .Chart.Name }}-config
+                name: {{ .Release.Name }}-config
             - secretRef:
                 name: cozy-dev-discord-token
           resources:
@@ -106,5 +106,5 @@ spec:
       imagePullSecrets:
         - name: regcred
       volumes:
-        - name: {{ .Chart.Name }}-storage
+        - name: {{ .Release.Name }}-storage
           emptyDir: { }

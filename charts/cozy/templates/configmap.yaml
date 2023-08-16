@@ -1,13 +1,13 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: {{ .Chart.Name }}-config
+  name: {{ .Release.Name }}-config
   namespace: {{ .Values.namespace }}
   labels:
-    app.kubernetes.io/name: {{ .Chart.Name }}
+    app.kubernetes.io/name: {{ .Release.Name }}
     app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 data:
-  DB_URL: mongodb://root:cozy@{{ .Chart.Name }}-mongodb:27017
+  DB_URL: mongodb://root:{{.Values.mongodb.auth.rootPassword}}@{{ .Release.Name }}-mongodb:27017
   ENVIRONMENT: prod
   MESSAGE_LOG_CATEGORIES: {{ .Values.messageLogs }}
   COMMUNITY_RELEASE_CHANNELS: {{ .Values.releaseChannels }}

@@ -26,3 +26,6 @@ dependencies:
   - name: redis
     repository: https://charts.bitnami.com/bitnami
     version: 17.X.X
+  - name: s3-backups
+    version: 1.0.0
+    repository: 'file://../s3-backups'
