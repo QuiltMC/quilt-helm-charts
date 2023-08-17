@@ -4,6 +4,6 @@ dependencies:
   version: 13.16.2
 - name: s3-backups
   repository: file://../s3-backups
-  version: 1.0.0
-digest: sha256:27bad3f800ee0acc725be1ed1f7fee532a8ffc922038cc844735fd20e48f44b5
-generated: "2023-08-15T23:04:13.292374+02:00"
+  version: 0.1.0
+digest: sha256:8f7e707c1196f9cb8cfe8fec159fab1cbdbc3cb12cd578741464f0e1b42410f7
+generated: "2023-08-18T00:10:55.347834+02:00"
