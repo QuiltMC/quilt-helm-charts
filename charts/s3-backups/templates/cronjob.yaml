@@ -22,7 +22,7 @@ spec:
                 - >
                   {{- if eq .Values.database.type "mongodb" }}
                   EXT=gz &&
-                  mongodump -h="{{ tpl .Values.database.host . }}" -u="{{ .Values.database.username | default "root" }} -p="{{ .Values.database.password }}" --gzip --archive="backup.$EXT" &&
+                  mongodump -h="{{ tpl .Values.database.host . }}" -u="{{ .Values.database.username | default "root" }}" -p="{{ .Values.database.password }}" --gzip --archive="backup.$EXT" &&
                   {{- else if eq .Values.database.type "postgresql" }}
                   EXT=pgdump &&
                   pg_dump {{ .Values.database.dbName }} --clean --if-exists --quote-all-identifiers --no-password --file=backup.$EXT &&
