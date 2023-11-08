@@ -44,6 +44,4 @@ spec:
                     # should contain AWS credentials environment variables
                     name: {{ .Values.awsSecretName }}
           restartPolicy: OnFailure
-          imagePullSecrets:
-            - name: regcred
 {{ end }}

@@ -103,8 +103,6 @@ spec:
                 name: cozy-dev-discord-token
           resources:
             {{ toYaml .Values.resources | nindent 10 }}
-      imagePullSecrets:
-        - name: regcred
       volumes:
         - name: {{ .Release.Name }}-storage
           emptyDir: { }

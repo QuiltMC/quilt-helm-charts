@@ -4,12 +4,12 @@ dependencies:
   version: 3.1.0
 - name: postgresql
   repository: https://charts.bitnami.com/bitnami
-  version: 12.10.0
+  version: 12.12.10
 - name: redis
   repository: https://charts.bitnami.com/bitnami
   version: 17.17.1
 - name: s3-backups
   repository: file://../s3-backups
-  version: 0.1.1
-digest: sha256:94055b7e9f4e9da429e65bf8bfcd6d284e9f92fa92c44696d3eec7bf781d09a2
-generated: "2023-09-01T17:37:42.958916+02:00"
+  version: 0.1.2
+digest: sha256:bd21a581ec07cbb25dc97fce1a753e344c15cc31bb16161bc43bdc34d3924aa3
+generated: "2023-11-08T13:46:26.300506947-05:00"

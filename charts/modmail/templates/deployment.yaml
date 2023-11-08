@@ -64,8 +64,6 @@ spec:
               name: http
           resources:
             {{ toYaml .Values.resources | nindent 10 }}
-      imagePullSecrets:
-        - name: regcred
       volumes:
         - name: {{ .Chart.Name }}-storage
           emptyDir: { }
