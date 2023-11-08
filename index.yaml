@@ -3,6 +3,29 @@ entries:
   quilt-cozy:
   - apiVersion: v2
     appVersion: "1"
+    created: "2023-11-08T20:22:22.913865162Z"
+    dependencies:
+    - name: mongodb
+      repository: https://charts.bitnami.com/bitnami
+      version: 13.16.2
+    - name: s3-backups
+      repository: file://../s3-backups
+      version: 0.1.2
+    description: helm chart to deploy the Quilt Cozy Discord bot
+    digest: b298cc8236ece313ce325879060e09bdd2dc8d1b43a9d47b816eacf02d5ca50a
+    home: https://github.com/QuiltMC/quilt-helm-charts
+    maintainers:
+    - email: pyrofab@quiltmc.org
+      name: Pyrofab
+    - email: tibs@quiltmc.org
+      name: tibs
+    name: quilt-cozy
+    type: application
+    urls:
+    - https://github.com/QuiltMC/quilt-helm-charts/releases/download/quilt-cozy-1.1.2/quilt-cozy-1.1.2.tgz
+    version: 1.1.2
+  - apiVersion: v2
+    appVersion: "1"
     created: "2023-09-02T23:51:18.696342735Z"
     dependencies:
     - name: mongodb
@@ -63,6 +86,35 @@ entries:
     - quilt-cozy-1.0.0.tgz
     version: 1.0.0
   quilt-forum:
+  - apiVersion: v2
+    appVersion: "1"
+    created: "2023-11-08T20:22:23.113016757Z"
+    dependencies:
+    - name: discourse
+      repository: https://pyrofab.github.io/mozilla-helm-charts/
+      version: 3.1.0
+    - name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: 12.X.X
+    - name: redis
+      repository: https://charts.bitnami.com/bitnami
+      version: 17.X.X
+    - name: s3-backups
+      repository: file://../s3-backups
+      version: 0.1.2
+    description: helm chart to deploy the Quilt Discourse Forum
+    digest: fcedb6ff8ef5c8b04025ebd98114e1aa6d942ae30708aed77138b07ffc7162c4
+    home: https://github.com/QuiltMC/quilt-helm-charts
+    maintainers:
+    - email: pyrofab@quiltmc.org
+      name: Pyrofab
+    - email: tibs@quiltmc.org
+      name: tibs
+    name: quilt-forum
+    type: application
+    urls:
+    - https://github.com/QuiltMC/quilt-helm-charts/releases/download/quilt-forum-0.1.4/quilt-forum-0.1.4.tgz
+    version: 0.1.4
   - apiVersion: v2
     appVersion: "1"
     created: "2023-09-02T23:51:18.854371554Z"
@@ -173,6 +225,29 @@ entries:
   quilt-modmail:
   - apiVersion: v2
     appVersion: "1"
+    created: "2023-11-08T20:22:23.265306242Z"
+    dependencies:
+    - name: mongodb
+      repository: https://charts.bitnami.com/bitnami
+      version: 13.16.2
+    - name: s3-backups
+      repository: file://../s3-backups
+      version: 0.1.2
+    description: helm chart to deploy Quilt's Modmail Discord bot
+    digest: 2698c76dcea6379d84fb2e176f714e3b5ae31a03131ca43aae119c3e0b723260
+    home: https://github.com/QuiltMC/quilt-helm-charts
+    maintainers:
+    - email: pyrofab@quiltmc.org
+      name: Pyrofab
+    - email: tibs@quiltmc.org
+      name: tibs
+    name: quilt-modmail
+    type: application
+    urls:
+    - https://github.com/QuiltMC/quilt-helm-charts/releases/download/quilt-modmail-1.1.2/quilt-modmail-1.1.2.tgz
+    version: 1.1.2
+  - apiVersion: v2
+    appVersion: "1"
     created: "2023-09-02T23:51:19.003074437Z"
     dependencies:
     - name: mongodb
@@ -237,6 +312,29 @@ entries:
   quilt-stats:
   - apiVersion: v2
     appVersion: "1"
+    created: "2023-11-08T20:22:23.40562727Z"
+    dependencies:
+    - name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: 12.8.0
+    - name: s3-backups
+      repository: file://../s3-backups
+      version: 0.1.2
+    description: helm chart to deploy Quilt's Stats Discord bot
+    digest: abcc51a38da3723e6ae22226132d83181c384d942f1ff5a1f6caab12b14cebff
+    home: https://github.com/QuiltMC/quilt-helm-charts
+    maintainers:
+    - email: pyrofab@quiltmc.org
+      name: Pyrofab
+    - email: tibs@quiltmc.org
+      name: tibs
+    name: quilt-stats
+    type: application
+    urls:
+    - https://github.com/QuiltMC/quilt-helm-charts/releases/download/quilt-stats-1.1.2/quilt-stats-1.1.2.tgz
+    version: 1.1.2
+  - apiVersion: v2
+    appVersion: "1"
     created: "2023-09-02T23:51:19.145481095Z"
     dependencies:
     - name: postgresql
@@ -281,6 +379,26 @@ entries:
   s3-backups:
   - apiVersion: v2
     appVersion: "1"
+    created: "2023-11-08T20:22:23.583501388Z"
+    dependencies:
+    - name: mongodb
+      repository: https://charts.bitnami.com/bitnami
+      version: 13.16.2
+    description: helm chart handling Quilt's backups to an S3
+    digest: b95d44cbe4d4c2d95be4c9ec17e81f321bed2e6d688333942bc3cff9640f9565
+    home: https://github.com/QuiltMC/quilt-helm-charts
+    maintainers:
+    - email: pyrofab@quiltmc.org
+      name: Pyrofab
+    - email: tibs@quiltmc.org
+      name: tibs
+    name: s3-backups
+    type: application
+    urls:
+    - https://github.com/QuiltMC/quilt-helm-charts/releases/download/s3-backups-0.1.2/s3-backups-0.1.2.tgz
+    version: 0.1.2
+  - apiVersion: v2
+    appVersion: "1"
     created: "2023-09-02T23:51:19.29750509Z"
     dependencies:
     - name: mongodb
@@ -299,4 +417,4 @@ entries:
     urls:
     - https://github.com/QuiltMC/quilt-helm-charts/releases/download/s3-backups-0.1.1/s3-backups-0.1.1.tgz
     version: 0.1.1
-generated: "2023-09-02T23:51:19.297548191Z"
+generated: "2023-11-08T20:22:23.583594389Z"
