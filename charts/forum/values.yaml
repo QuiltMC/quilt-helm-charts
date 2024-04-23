@@ -47,7 +47,7 @@ discourse:
       DISCOURSE_REDIS_HOST: "quilt-forum-redis-master.quilt.svc.cluster.local"
 
       DISCOURSE_USE_S3: true
-      DISCOURSE_S3_REGION: "pineapple"  # Doesn't matter, but set it to something
+      DISCOURSE_S3_REGION: "eu-central-003"
       DISCOURSE_S3_INSTALL_CORS_RULE: false
       DISCOURSE_S3_CONFIGURE_TOMBSTONE_POLICY: false
       DISCOURSE_S3_ENDPOINT: 'https://s3.eu-central-003.backblazeb2.com'
