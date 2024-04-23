@@ -73,7 +73,7 @@ discourse:
 
   image:
     repository: "ghcr.io/quiltmc/forum"
-    tag: "c83d121"
+    tag: "eca06ff"
 
   imagePullSecrets:
     - name: ghcr-token
