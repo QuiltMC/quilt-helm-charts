@@ -4,9 +4,9 @@ name: quilt-forum
 # This is the chart version. This version number should be incremented each time you make changes
 # to the chart and its templates, including the app version.
 # Versions are expected to follow Semantic Versioning (https://semver.org/)
-version: 0.1.3
-# This is the version number of the application being deployed (purely informational).
-appVersion: '1'
+version: 0.2.0
+# This is the version number of the Discourse image being deployed (purely informational).
+appVersion: '3.2.1'
 description: helm chart to deploy the Quilt Discourse Forum
 home: https://github.com/QuiltMC/quilt-helm-charts
 # A chart can be either an 'application' or a 'library' chart.
