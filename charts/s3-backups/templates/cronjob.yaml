@@ -7,6 +7,7 @@ spec:
   schedule: "0 0 * * *"
   jobTemplate:
     spec:
+      ttlSecondsAfterFinished: 3600
       template:
         spec:
           containers:
@@ -44,6 +45,4 @@ spec:
                     # should contain AWS credentials environment variables
                     name: {{ .Values.awsSecretName }}
           restartPolicy: OnFailure
-          imagePullSecrets:
-            - name: regcred
 {{ end }}

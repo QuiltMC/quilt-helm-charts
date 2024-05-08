@@ -27,5 +27,5 @@ dependencies:
     repository: https://charts.bitnami.com/bitnami
     version: 17.X.X
   - name: s3-backups
-    version: 0.1.1
+    version: 0.1.2
     repository: 'file://../s3-backups'
