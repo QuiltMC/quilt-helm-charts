@@ -16,6 +16,11 @@ jobs:
         with:
           version: v3.14.0
 
+      - name: Add helm repositories
+        run: |
+          helm repo add pyrofab https://pyrofab.github.io/mozilla-helm-charts
+          helm repo add bitnami https://charts.bitnami.com/bitnami
+
       - uses: actions/setup-python@v4
         with:
           python-version: '3.12'
