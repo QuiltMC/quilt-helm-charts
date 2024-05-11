@@ -28,13 +28,28 @@ discourse:
   configMap:
     data:
       DISCOURSE_HOSTNAME: 'forum.quiltmc.org'
+
+      DISCOURSE_DB_HOST: "quilt-forum-postgresql.quilt.svc.cluster.local"
+      DISCOURSE_DB_NAME: 'forum_quiltmc_org'
+      DISCOURSE_DB_USERNAME: 'forum_quiltmc_org'
+      DISCOURSE_DB_PASSWORD: 'default'
       DISCOURSE_DB_PORT: 5432
       DISCOURSE_DB_SOCKET: ""
-      DISCOURSE_DEVELOPER_EMAILS: 'pyrofab@quiltmc.net, tibs@quiltmc.net'
+
+      DISCOURSE_DEVELOPER_EMAILS: 'pyrofab@quiltmc.org, tibs@quiltmc.org'
       DISCOURSE_SMTP_ADDRESS: 'email-smtp.us-west-2.amazonaws.com'
+      DISCOURSE_SMTP_PORT: '2587'
+      DISCOURSE_SMTP_ENABLE_START_TLS: 'true'
       DISCOURSE_NOTIFICATION_EMAIL: 'discourse@forum.quiltmc.org'
+      DISCOURSE_SMTP_DOMAIN: 'forum.quiltmc.org'
+
+      DISCOURSE_REDIS_DB: '1'
       DISCOURSE_REDIS_HOST: "quilt-forum-redis-master.quilt.svc.cluster.local"
-      DISCOURSE_DB_HOST: "quilt-forum-postgresql.quilt.svc.cluster.local"
+
+      DISCOURSE_USE_S3: true
+      DISCOURSE_S3_REGION: "eu-central-003"
+      DISCOURSE_S3_INSTALL_CORS_RULE: false
+      DISCOURSE_S3_CONFIGURE_TOMBSTONE_POLICY: false
       DISCOURSE_S3_ENDPOINT: 'https://s3.eu-central-003.backblazeb2.com'
       DISCOURSE_S3_CDN_URL: 'https://forum-cdn.quiltmc.org'
       DISCOURSE_S3_BUCKET: 'forum-quiltmc-org'
@@ -58,7 +73,10 @@ discourse:
 
   image:
     repository: "ghcr.io/quiltmc/forum"
-    tag: "d7fc8f9"
+    tag: "eca06ff"
+
+  imagePullSecrets:
+    - name: ghcr-token
 
   ingress:
     className: "traefik"
