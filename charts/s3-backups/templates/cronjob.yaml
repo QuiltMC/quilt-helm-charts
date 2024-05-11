@@ -13,9 +13,9 @@ spec:
           containers:
             - name: backup
               {{- if eq .Values.database.type "mongodb" }}
-              image: ghcr.io/bitofsky/mongodb-awscli-image:v0.0.1
+              image: ghcr.io/quiltmc/mongodb-s3-backup:latest
               {{- else if eq .Values.database.type "postgresql" }}
-              image: osodevops/aws-cli-postgres
+              image: ghcr.io/quiltmc/postgresql-s3-backup:latest
               {{- end }}
               imagePullPolicy: IfNotPresent
               command: ["/bin/sh", "-c"]
