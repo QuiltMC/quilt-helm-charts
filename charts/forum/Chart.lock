@@ -10,6 +10,6 @@ dependencies:
   version: 17.17.1
 - name: s3-backups
   repository: file://../s3-backups
-  version: 0.1.2
-digest: sha256:bd21a581ec07cbb25dc97fce1a753e344c15cc31bb16161bc43bdc34d3924aa3
-generated: "2023-11-08T13:46:26.300506947-05:00"
+  version: 0.2.0
+digest: sha256:6ad85e467301603ce3782e8e81f68932fc399302bc4aa5dad9dea8836cf92ee4
+generated: "2024-05-12T02:49:15.499456+02:00"
