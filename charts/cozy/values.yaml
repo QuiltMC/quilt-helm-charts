@@ -6,7 +6,8 @@ messageLogs: '839495849116958780,839496251463958548'
 releaseChannels: '832351145073573889,832351173640978472'
 statusChannel: '1009020306280681532'
 
-resources: # cf. https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+# cf. https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+resources:
   limits:
     cpu: 400m
     memory: 924Mi
