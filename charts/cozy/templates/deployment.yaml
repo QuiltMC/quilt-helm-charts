@@ -48,7 +48,7 @@ spec:
                 # env name should be TOKEN
                 name: cozy-quilt-discord-token
           resources:
-            {{ toYaml .Values.resources | nindent 10 }}
+            {{ toYaml .Values.resources | nindent 12 }}
         - name: cozy-collab
           image: {{ .Values.image }}
           securityContext:
@@ -66,7 +66,7 @@ spec:
             - secretRef:
                 name: cozy-collab-discord-token
           resources:
-            {{ toYaml .Values.resources | nindent 10 }}
+            {{ toYaml .Values.resources | nindent 12 }}
         - name: cozy-showcase
           image: {{ .Values.image }}
           securityContext:
@@ -84,7 +84,7 @@ spec:
             - secretRef:
                 name: cozy-showcase-discord-token
           resources:
-            {{ toYaml .Values.resources | nindent 10 }}
+            {{ toYaml .Values.resources | nindent 12 }}
         - name: cozy-dev
           image: {{ .Values.image }}
           securityContext:
@@ -102,7 +102,7 @@ spec:
             - secretRef:
                 name: cozy-dev-discord-token
           resources:
-            {{ toYaml .Values.resources | nindent 10 }}
+            {{ toYaml .Values.resources | nindent 12 }}
       volumes:
         - name: {{ .Release.Name }}-storage
           emptyDir: { }
