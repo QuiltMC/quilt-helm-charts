@@ -2,8 +2,8 @@ dependencies:
 - name: postgresql
   repository: https://charts.bitnami.com/bitnami
   version: 12.8.0
-- name: s3-backups
-  repository: file://../s3-backups
-  version: 0.2.0
-digest: sha256:48d01dbddab226ed5d1e4166fab44ee771ffbb781cdb5c447d35d67b1901526e
-generated: "2024-05-12T02:51:42.396378+02:00"
+- name: postgresql-s3-backup
+  repository: file://../postgresql-s3-backup
+  version: 1.0.0
+digest: sha256:cb94b35f08891be94dabd90d1d4a35f2c741375db721642037334067b1cf74ba
+generated: "2024-05-12T19:44:32.821466+02:00"

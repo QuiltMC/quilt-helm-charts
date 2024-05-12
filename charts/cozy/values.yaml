@@ -25,6 +25,6 @@ mongodb:
     databases:
       - cozy
 
-s3-backups:
+mongodb-s3-backup:
   database:
     password: cozy
