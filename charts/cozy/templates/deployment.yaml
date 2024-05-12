@@ -31,7 +31,7 @@ spec:
           type: RuntimeDefault
       containers:
         - name: cozy-quilt
-          image: {{ .Values.image }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           securityContext:
             allowPrivilegeEscalation: false
             capabilities:
@@ -50,7 +50,7 @@ spec:
           resources:
             {{ toYaml .Values.resources | nindent 12 }}
         - name: cozy-collab
-          image: {{ .Values.image }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           securityContext:
             allowPrivilegeEscalation: false
             capabilities:
@@ -68,7 +68,7 @@ spec:
           resources:
             {{ toYaml .Values.resources | nindent 12 }}
         - name: cozy-showcase
-          image: {{ .Values.image }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           securityContext:
             allowPrivilegeEscalation: false
             capabilities:
@@ -86,7 +86,7 @@ spec:
           resources:
             {{ toYaml .Values.resources | nindent 12 }}
         - name: cozy-dev
-          image: {{ .Values.image }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           securityContext:
             allowPrivilegeEscalation: false
             capabilities:

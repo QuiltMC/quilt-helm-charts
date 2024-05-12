@@ -1,0 +1,15 @@
+name: 'Update App Version'
+description: "Update a Helm chart's application version"
+inputs:
+  path:
+    description: 'Path to the chart to update'
+    required: true
+  tag:
+    description: 'New tag for the docker image'
+    required: true
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.path }}
+    - ${{ inputs.tag }}
