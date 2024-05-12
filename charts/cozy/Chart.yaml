@@ -4,7 +4,7 @@ name: quilt-cozy
 # This is the chart version. This version number should be incremented each time you make changes
 # to the chart and its templates, including the app version.
 # Versions are expected to follow Semantic Versioning (https://semver.org/)
-version: 1.1.4
+version: 1.1.5
 # This is the version number of the application being deployed (purely informational).
 appVersion: '1'
 description: helm chart to deploy the Quilt Cozy Discord bot
