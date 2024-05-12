@@ -45,7 +45,7 @@ spec:
                 # env name should be TOKEN
                 name: modmail-quilt-discord-token
           resources:
-            {{ toYaml .Values.resources | nindent 10 }}
+            {{ toYaml .Values.resources | nindent 12 }}
         - name: modmail-viewer-quilt
           image: {{ .Values.viewer.image }}
           securityContext:
@@ -63,7 +63,7 @@ spec:
             - containerPort: {{ .Values.viewer.port }}
               name: http
           resources:
-            {{ toYaml .Values.resources | nindent 10 }}
+            {{ toYaml .Values.resources | nindent 12 }}
       volumes:
         - name: {{ .Chart.Name }}-storage
           emptyDir: { }
