@@ -23,9 +23,8 @@ postgresql:
     postgresPassword: stats
     database: metabase
 
-s3-backups:
+postgresql-s3-backup:
   database:
-    type: "postgresql"
     host: "{{ .Release.Name }}-postgresql:5432"
     password: stats
     dbName: metabase

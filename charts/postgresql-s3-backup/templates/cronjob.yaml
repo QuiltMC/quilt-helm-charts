@@ -2,7 +2,7 @@
 apiVersion: batch/v1
 kind: CronJob
 metadata:
-  name: {{ .Release.Name }}-{{ .Values.database.type }}-backup
+  name: {{ .Release.Name }}-postgresql-backup
 spec:
   schedule: "0 0 * * *"
   jobTemplate:
@@ -12,24 +12,14 @@ spec:
         spec:
           containers:
             - name: backup
-              {{- if eq .Values.database.type "mongodb" }}
-              image: ghcr.io/quiltmc/mongodb-s3-backup:latest
-              {{- else if eq .Values.database.type "postgresql" }}
-              image: ghcr.io/quiltmc/postgresql-s3-backup:latest
-              {{- end }}
+              image: {{ .Values.image }}
               imagePullPolicy: IfNotPresent
               command: ["/bin/sh", "-c"]
               args:
                 - >
-                  {{- if eq .Values.database.type "mongodb" }}
-                  EXT=gz &&
-                  mongodump -h="{{ tpl .Values.database.host . }}" -u="{{ .Values.database.username | default "root" }}" -p="{{ .Values.database.password }}" --gzip --archive="backup.$EXT" &&
-                  {{- else if eq .Values.database.type "postgresql" }}
                   EXT=pgdump &&
                   pg_dump {{ .Values.database.dbName }} --clean --if-exists --quote-all-identifiers --no-password --file=backup.$EXT &&
-                  {{- end }}
                   aws --endpoint {{ .Values.endpoint }} s3 cp backup.gz s3://quilt-backups/{{ .Release.Name }}/`date -I`.$EXT
-              {{- if eq .Values.database.type "postgresql" }}
               env:
                 - name: PGUSER
                   value: {{ .Values.database.username }}
@@ -39,7 +29,6 @@ spec:
                   value: {{ tpl .Values.database.host . }}
                 - name: PGPORT
                   value: '5432'
-              {{- end }}
               envFrom:
                 - secretRef:
                     # should contain AWS credentials environment variables

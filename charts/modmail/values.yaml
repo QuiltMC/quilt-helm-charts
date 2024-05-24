@@ -32,6 +32,6 @@ mongodb:
     databases:
       - modmail
 
-s3-backups:
+mongodb-s3-backup:
   database:
     password: modmail
