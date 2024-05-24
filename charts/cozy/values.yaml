@@ -10,7 +10,7 @@ statusChannel: '1009020306280681532'
 resources:
   limits:
     cpu: 400m
-    memory: 924Mi
+    memory: 1200Mi
   requests:
     cpu: 400m
     memory: 724Mi
