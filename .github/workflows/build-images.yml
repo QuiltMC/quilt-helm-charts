@@ -20,12 +20,11 @@ jobs:
           tag=$(cut -c 1-7 <<< $GITHUB_SHA)
           echo "tag=$tag" >> $GITHUB_OUTPUT
 
-      - name: Build images
-        run: |
-          docker build ./images/postgresql-s3-backup/ -t ghcr.io/quiltmc/postgresql-s3-backup:latest
-          docker tag ghcr.io/quiltmc/postgresql-s3-backup:latest ghcr.io/quiltmc/postgresql-s3-backup:${{ steps.sha_tag.outputs.tag }}
-          docker build ./images/mongodb-s3-backup/ -t ghcr.io/quiltmc/mongodb-s3-backup:latest
-          docker tag ghcr.io/quiltmc/mongodb-s3-backup:latest ghcr.io/quiltmc/mongodb-s3-backup:${{ steps.sha_tag.outputs.tag }}
+      - name: Build postgresql-s3-backup image
+        run: docker build ./images/postgresql-s3-backup/ -t ghcr.io/quiltmc/postgresql-s3-backup:latest -t ghcr.io/quiltmc/postgresql-s3-backup:${{ steps.sha_tag.outputs.tag }}
+
+      - name: Build mongodb-s3-backup image
+        run: docker build ./images/mongodb-s3-backup/ -t ghcr.io/quiltmc/mongodb-s3-backup:latest -t ghcr.io/quiltmc/mongodb-s3-backup:${{ steps.sha_tag.outputs.tag }}
 
       - name: Login to Github Container Registry
         if: github.ref == 'refs/heads/main'

@@ -1,0 +1,29 @@
+name: Update Cozy version
+
+on:
+  repository_dispatch:
+    types: [cozy_update]
+
+concurrency: build-${{ github.sha }}
+
+jobs:
+  update:
+    if: ${{ github.event.client_payload.tag }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Update chart
+        uses: ./.github/actions/update-app-version
+        with:
+          path: charts/cozy
+          tag: ${{ github.event.client_payload.tag }}
+
+      - name: Commit and push
+        run: |
+          git config --global user.name "Cozy's Valet"
+          git config --global user.email 'infrastructure@quiltmc.org'
+          git commit -am "Update cozy version"
+          git push
