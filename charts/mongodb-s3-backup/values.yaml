@@ -1,0 +1,8 @@
+enabled: true
+database:
+  host: '{{ .Release.Name }}-mongodb'
+  username: ''
+  password: ''
+awsSecretName: 'quilt-backups'
+endpoint: 'https://s3.eu-central-003.backblazeb2.com'
+image: 'ghcr.io/quiltmc/mongodb-s3-backup:4b26b78'

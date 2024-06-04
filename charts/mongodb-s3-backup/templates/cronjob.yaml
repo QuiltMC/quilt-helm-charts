@@ -1,0 +1,28 @@
+{{ if .Values.enabled }}
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: {{ .Release.Name }}-mongodb-backup
+spec:
+  schedule: "0 0 * * *"
+  jobTemplate:
+    spec:
+      ttlSecondsAfterFinished: 3600
+      template:
+        spec:
+          containers:
+            - name: backup
+              image: {{ .Values.image }}
+              imagePullPolicy: IfNotPresent
+              command: ["/bin/sh", "-c"]
+              args:
+                - >
+                  EXT=gz &&
+                  mongodump -h="{{ tpl .Values.database.host . }}" -u="{{ .Values.database.username | default "root" }}" -p="{{ .Values.database.password }}" --gzip --archive="backup.$EXT" &&
+                  aws --endpoint {{ .Values.endpoint }} s3 cp backup.gz s3://quilt-backups/{{ .Release.Name }}/`date -I`.$EXT
+              envFrom:
+                - secretRef:
+                    # should contain AWS credentials environment variables
+                    name: {{ .Values.awsSecretName }}
+          restartPolicy: OnFailure
+{{ end }}

@@ -8,8 +8,8 @@ dependencies:
 - name: redis
   repository: https://charts.bitnami.com/bitnami
   version: 17.17.1
-- name: s3-backups
-  repository: file://../s3-backups
-  version: 0.2.0
-digest: sha256:6ad85e467301603ce3782e8e81f68932fc399302bc4aa5dad9dea8836cf92ee4
-generated: "2024-05-12T02:49:15.499456+02:00"
+- name: postgresql-s3-backup
+  repository: file://../postgresql-s3-backup
+  version: 1.0.0
+digest: sha256:f4f3b3f6fb9ba88f2ee54fda6f7da94a2667bd88ec37210cda738a2a06c38b41
+generated: "2024-05-12T19:44:14.415514+02:00"

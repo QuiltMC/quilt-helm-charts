@@ -20,6 +20,6 @@ dependencies:
   - name: mongodb
     version: 13.16.2
     repository: https://charts.bitnami.com/bitnami
-  - name: s3-backups
-    version: 0.2.0
-    repository: 'file://../s3-backups'
+  - name: mongodb-s3-backup
+    version: 1.0.0
+    repository: 'file://../mongodb-s3-backup'

@@ -1,13 +1,13 @@
 # Spec: https://helm.sh/docs/topics/charts/#the-chartyaml-file
 apiVersion: v2
-name: s3-backups
+name: postgresql-s3-backup
 # This is the chart version. This version number should be incremented each time you make changes
 # to the chart and its templates, including the app version.
 # Versions are expected to follow Semantic Versioning (https://semver.org/)
-version: 0.2.0
+version: 1.0.0
 # This is the version number of the application being deployed (purely informational).
 appVersion: '1'
-description: helm chart handling Quilt's backups to an S3
+description: Helm chart handling Quilt's PostgreSQL backups to an S3
 home: https://github.com/QuiltMC/quilt-helm-charts
 # A chart can be either an 'application' or a 'library' chart.
 type: application
@@ -16,7 +16,3 @@ maintainers:
     email: pyrofab@quiltmc.org
   - name: tibs
     email: tibs@quiltmc.org
-dependencies:
-  - name: mongodb
-    version: 13.16.2
-    repository: https://charts.bitnami.com/bitnami
