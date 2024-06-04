@@ -17,9 +17,9 @@ spec:
               command: ["/bin/sh", "-c"]
               args:
                 - >
-                  EXT=pgdump &&
-                  pg_dump {{ .Values.database.dbName }} --clean --if-exists --quote-all-identifiers --no-password --file=backup.$EXT &&
-                  aws --endpoint {{ .Values.endpoint }} s3 cp backup.gz s3://quilt-backups/{{ .Release.Name }}/`date -I`.$EXT
+                  pg_dump {{ .Values.database.dbName }} --clean --if-exists --quote-all-identifiers --no-password --file=backup.pgdump &&
+                  aws --endpoint {{ .Values.endpoint }} s3 cp backup.pgdump s3://quilt-backups/{{ .Release.Name }}/`date -I`.pgdump
+                  aws --endpoint {{ .Values.endpoint }} s3 cp backup.pgdump s3://quilt-backups/latest/{{ .Release.Name }}.pgdump
               env:
                 - name: PGUSER
                   value: {{ .Values.database.username }}

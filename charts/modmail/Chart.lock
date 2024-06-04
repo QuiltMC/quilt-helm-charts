@@ -4,6 +4,6 @@ dependencies:
   version: 13.16.2
 - name: mongodb-s3-backup
   repository: file://../mongodb-s3-backup
-  version: 1.0.0
-digest: sha256:807610a2e401438e1bf29efda6c39dbced7dd9cc557681e2f23eb773cf091bd6
-generated: "2024-05-12T19:44:24.507366+02:00"
+  version: 1.1.0
+digest: sha256:536a9fcebdaf9a4fdb28df8a89661e588ba135d99f2beefd44d61818eb12bcc4
+generated: "2024-06-04T01:58:20.617544+02:00"
