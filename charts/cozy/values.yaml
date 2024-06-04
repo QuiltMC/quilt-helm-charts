@@ -1,20 +1,19 @@
-image: ghcr.io/quiltmc/cozy-discord:latest
+image:
+  repository: 'ghcr.io/quiltmc/cozy-discord'
+  tag: 'd5b639dd8cf0869c6f9707b5fa2b2f5153dfa74f'
 namespace: quilt
 replicaCount: 1
-
 messageLogs: '839495849116958780,839496251463958548'
 releaseChannels: '832351145073573889,832351173640978472'
 statusChannel: '1009020306280681532'
-
 # cf. https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
 resources:
   limits:
     cpu: 400m
-    memory: 924Mi
+    memory: 1200Mi
   requests:
     cpu: 400m
     memory: 724Mi
-
 mongodb:
   auth:
     rootPassword: cozy
@@ -24,7 +23,6 @@ mongodb:
       - cozy
     databases:
       - cozy
-
 mongodb-s3-backup:
   database:
     password: cozy

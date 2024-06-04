@@ -31,13 +31,13 @@ spec:
           type: RuntimeDefault
       containers:
         - name: cozy-quilt
-          image: {{ .Values.image }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           securityContext:
             allowPrivilegeEscalation: false
             capabilities:
               drop:
                 - ALL
-          imagePullPolicy: Always
+          imagePullPolicy: IfNotPresent
           env:
             - name: MODE
               value: quilt
@@ -50,13 +50,13 @@ spec:
           resources:
             {{ toYaml .Values.resources | nindent 12 }}
         - name: cozy-collab
-          image: {{ .Values.image }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           securityContext:
             allowPrivilegeEscalation: false
             capabilities:
               drop:
                 - ALL
-          imagePullPolicy: Always
+          imagePullPolicy: IfNotPresent
           env:
             - name: MODE
               value: collab
@@ -68,13 +68,13 @@ spec:
           resources:
             {{ toYaml .Values.resources | nindent 12 }}
         - name: cozy-showcase
-          image: {{ .Values.image }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           securityContext:
             allowPrivilegeEscalation: false
             capabilities:
               drop:
                 - ALL
-          imagePullPolicy: Always
+          imagePullPolicy: IfNotPresent
           env:
             - name: MODE
               value: showcase
@@ -86,13 +86,13 @@ spec:
           resources:
             {{ toYaml .Values.resources | nindent 12 }}
         - name: cozy-dev
-          image: {{ .Values.image }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           securityContext:
             allowPrivilegeEscalation: false
             capabilities:
               drop:
                 - ALL
-          imagePullPolicy: Always
+          imagePullPolicy: IfNotPresent
           env:
             - name: MODE
               value: dev
