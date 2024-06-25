@@ -4,6 +4,6 @@ dependencies:
   version: 12.8.0
 - name: postgresql-s3-backup
   repository: file://../postgresql-s3-backup
-  version: 1.1.0
-digest: sha256:4c7d7df84f62a0fdde7ab205b8b51186f620bc11d170c904c7726ebd6f68e83f
-generated: "2024-06-04T01:58:31.566591+02:00"
+  version: 1.1.1
+digest: sha256:4b7f933dfd46fa41072c131f3d81e402e96949edd0bd9fe67e591761991045ab
+generated: "2024-06-25T22:07:48.769312+02:00"

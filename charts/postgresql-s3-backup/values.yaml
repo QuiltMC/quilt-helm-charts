@@ -6,4 +6,4 @@ database:
   dbName:
 awsSecretName: 'quilt-backups'
 endpoint: 'https://s3.eu-central-003.backblazeb2.com'
-image: 'ghcr.io/quiltmc/postgresql-s3-backup:4b26b78'
+image: 'ghcr.io/quiltmc/postgresql-s3-backup:b837205'
