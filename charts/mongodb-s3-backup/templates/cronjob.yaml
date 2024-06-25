@@ -18,7 +18,7 @@ spec:
               args:
                 - >
                   mongodump -h="{{ tpl .Values.database.host . }}" -u="{{ .Values.database.username | default "root" }}" -p="{{ .Values.database.password }}" --gzip --archive="backup.gz" &&
-                  aws --endpoint {{ .Values.endpoint }} s3 cp backup.gz s3://quilt-backups/{{ .Release.Name }}/`date -I`.gz
+                  aws --endpoint {{ .Values.endpoint }} s3 cp backup.gz s3://quilt-backups/{{ .Release.Name }}/`date -I`.gz &&
                   aws --endpoint {{ .Values.endpoint }} s3 cp backup.gz s3://quilt-backups/latest/{{ .Release.Name }}.gz
               envFrom:
                 - secretRef:
