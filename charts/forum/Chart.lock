@@ -10,6 +10,6 @@ dependencies:
   version: 17.17.1
 - name: postgresql-s3-backup
   repository: file://../postgresql-s3-backup
-  version: 1.0.0
-digest: sha256:f4f3b3f6fb9ba88f2ee54fda6f7da94a2667bd88ec37210cda738a2a06c38b41
-generated: "2024-05-12T19:44:14.415514+02:00"
+  version: 1.1.0
+digest: sha256:7f5d43b804bb907131faba017d1455d5a0346de02450d8c604c2e14c44c16b11
+generated: "2024-06-04T01:58:08.795081+02:00"

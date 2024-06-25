@@ -28,9 +28,30 @@ helm delete my-<chart-name>
 
 ## Backups
 
-All the charts include automated daily backups of the databases to an S3.
-To restore those backups, you currently have to download the files manually,
-then copy them to a container and run either `mongorestore` or `pgrestore`.
+All the charts include automated daily backups of the databases to an S3-compatible bucket.
+The path for each backup is `/<helm-project-name>/yyyy-mm-dd` (the extension being `.gz` for mongodb backups, and `.pgdump` for postgresql backups).
+An additional copy of the latest backup is made to `latest/<helm-project-name>`.
+
+### Expiration
+
+Expiration is not built into the backup charts. Instead, you should configure
+your storage bucket with appropriate lifecycle rules.
+In Quilt's case, Backblaze is configured such that old backups are hidden after 29 days,
+then deleted the next day.
+
+### Restoration
+
+To restore those backups, you can create a temporary container, download a backup, and run either `mongorestore`
+or `pgrestore`. For example:
+
+```bash
+# Assuming you are connected to the Quilt cluster
+kubectl run backup-restore --image=ghcr.io/quiltmc/mongodb-s3-backup:4b26b78 -it --rm -n quilt -- sh
+# Then inside the temp shell session:
+aws configure # Enter your credentials
+aws s3 cp s3://quilt-backups/xxx/1970-01-01.gz .
+mongorestore -h "hostname" -u "user" -p "password"  --gzip --archive="1970-01-01.gz"
+```
 
 ## Required secrets
 
@@ -44,6 +65,11 @@ kubectl create secret docker-registry ghcr-token --docker-server=https://ghcr.io
 ```
 
 where `$GITHUB_PAT` is a simple [access token](https://github.com/settings/tokens) with no specific permission.
+
+### Modmail
+
+With default values, Modmail requires a generic secret named `modmail-quilt-discord-token`, with the variable `TOKEN` containing the discord token.
+It also requires another generic secret named `modmail-viewer-quilt`, with the variables `MODMAIL_VIEWER_DISCORD_OAUTH_CLIENT_SECRET` and `MODMAIL_VIEWER_SECRETKEY`.
 
 ### Forum
 
