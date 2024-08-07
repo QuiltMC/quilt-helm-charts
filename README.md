@@ -46,12 +46,15 @@ or `pgrestore`. For example:
 
 ```bash
 # Assuming you are connected to the Quilt cluster
-kubectl run backup-restore --image=ghcr.io/quiltmc/mongodb-s3-backup:4b26b78 -it --rm -n quilt -- sh
+kubectl run backup-restore --image=ghcr.io/quiltmc/mongodb-s3-backup:b837205 -it --rm -n quilt -- sh
 # Then inside the temp shell session:
 aws configure # Enter your credentials
-aws s3 cp s3://quilt-backups/xxx/1970-01-01.gz .
+aws --endpoint $ENDPOINT_URL s3 cp s3://quilt-backups/xxx/1970-01-01.gz .
 mongorestore -h "hostname" -u "user" -p "password"  --gzip --archive="1970-01-01.gz"
 ```
+
+To connect to a Backblaze B2 storage with the AWS CLI, refer to [this article](https://www.backblaze.com/docs/cloud-storage-use-the-aws-cli-with-backblaze-b2).
+If you are restoring an app (e.g. cozy) from a blank slate, you may need to include the `--drop` option to mongorestore.
 
 ## Required secrets
 
@@ -65,6 +68,11 @@ kubectl create secret docker-registry ghcr-token --docker-server=https://ghcr.io
 ```
 
 where `$GITHUB_PAT` is a simple [access token](https://github.com/settings/tokens) with no specific permission.
+
+### Cozy
+
+Cozy requires 4 generic secrets named `cozy-quilt-discord-token`, `cozy-collab-discord-token`, `cozy-showcase-discord-token`,
+and `cozy-dev-discord-token`, each with a `TOKEN` variable containing the respective discord token.
 
 ### Modmail
 
