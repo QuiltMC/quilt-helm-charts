@@ -1,6 +1,6 @@
 image:
   repository: 'ghcr.io/quiltmc/cozy-discord'
-  tag: 'd5b639dd8cf0869c6f9707b5fa2b2f5153dfa74f'
+  tag: '59f8e7f8920e9438e3a0b391839380713640fa8b'
 namespace: quilt
 replicaCount: 1
 messageLogs: '839495849116958780,839496251463958548'
