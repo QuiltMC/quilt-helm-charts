@@ -1,0 +1,26 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: argocd-server
+  namespace: argocd
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - kind: Rule
+      match: Host(`argocd.quiltmc.net`)
+      priority: 10
+      services:
+        - name: argocd-server
+          port: 80
+    # Note: this rule is currently unused as Cloudflare does not support Grpc on tunnels
+    # (https://developers.cloudflare.com/network/grpc-connections/#limitations)
+    - kind: Rule
+      match: Host(`argocd.quiltmc.net`) && Headers(`Content-Type`, `application/grpc`)
+      priority: 11
+      services:
+        - name: argocd-server
+          port: 80
+          scheme: h2c
+  tls:
+    certResolver: default
