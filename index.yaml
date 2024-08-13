@@ -100,6 +100,29 @@ entries:
     version: 1.0.0
   quilt-cozy:
   - apiVersion: v2
+    appVersion: 59f8e7f8920e9438e3a0b391839380713640fa8b
+    created: "2024-08-13T06:44:06.868068184Z"
+    dependencies:
+    - name: mongodb
+      repository: https://charts.bitnami.com/bitnami
+      version: 13.16.2
+    - name: mongodb-s3-backup
+      repository: file://../mongodb-s3-backup
+      version: 1.1.1
+    description: helm chart to deploy the Quilt Cozy Discord bot
+    digest: 94968097ada656f3791045592fe31e5d4174359415f151fecbf993e394f3bf5e
+    home: https://github.com/QuiltMC/quilt-helm-charts
+    maintainers:
+    - email: pyrofab@quiltmc.org
+      name: Pyrofab
+    - email: tibs@quiltmc.org
+      name: tibs
+    name: quilt-cozy
+    type: application
+    urls:
+    - https://github.com/QuiltMC/quilt-helm-charts/releases/download/quilt-cozy-1.1.9/quilt-cozy-1.1.9.tgz
+    version: 1.1.9
+  - apiVersion: v2
     appVersion: "1"
     created: "2024-06-25T20:17:25.252928917Z"
     dependencies:
@@ -1019,4 +1042,4 @@ entries:
     urls:
     - https://github.com/QuiltMC/quilt-helm-charts/releases/download/s3-backups-0.1.1/s3-backups-0.1.1.tgz
     version: 0.1.1
-generated: "2024-06-25T20:17:25.750432675Z"
+generated: "2024-08-13T06:44:06.868148424Z"
