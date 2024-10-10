@@ -4,9 +4,9 @@ name: quilt-cozy
 # This is the chart version. This version number should be incremented each time you make changes
 # to the chart and its templates, including the app version.
 # Versions are expected to follow Semantic Versioning (https://semver.org/)
-version: 1.1.9
+version: 1.1.10
 # This is the version number of the application being deployed (purely informational).
-appVersion: '59f8e7f8920e9438e3a0b391839380713640fa8b'
+appVersion: '956d2e7b7d128f9f1d7d086305bbca7435648d47'
 description: helm chart to deploy the Quilt Cozy Discord bot
 home: https://github.com/QuiltMC/quilt-helm-charts
 # A chart can be either an 'application' or a 'library' chart.
